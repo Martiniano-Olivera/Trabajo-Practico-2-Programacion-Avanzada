@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trabajo Practico Nº 2</title>
+  <!-- <script src="ejercicio1.js"></script> -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    function validar() {
+      var nb, ab, db, tb, mb = true;
+
+      if (nombre.value.length == 0) {
+        nombre.className = "form-control is-invalid";
+        nb = false;
+      } else {
+        nombre.className = "form-control is-valid";
+        nb = true;
+      }
+
+      if (apellido.value.length == 0) {
+        apellido.className = "form-control is-invalid";
+        ab = false;
+      } else {
+        apellido.className = "form-control is-valid";
+        ab = true;
+      }
+
+      if (direccion.value.length == 0) {
+        direccion.className = "form-control is-invalid";
+        ab = false;
+      } else {
+        direccion.className = "form-control is-valid";
+        db = true;
+      }
+
+      if (telefono.value.length == 0) {
+        telefono.className = "form-control is-invalid";
+        tb = false;
+      } else {
+        telefono.className = "form-control is-valid";
+        tb = true;
+      }
+
+      if (mail.value.length == 0) {
+        mail.className = "form-control is-invalid";
+        mb = false;
+      } else {
+        mail.className = "form-control is-valid";
+        mb = true;
+      }
+
+      if (nb && ab && db && tb && mb) {
+        swal({
+          title: 'Se cargó correctamente',
+          text: '¿Desea enviar el formulario?',
+          icon: "success",
+          buttons: true
+        }).then((aceptar) => {
+          if (aceptar) {
+            document.formulario.submit();
+          }
+        })
+      } else {
+        swal("Datos Incompletos", "Debe completar todos los campos", "error");
+      }
+
+    }
+
+    function onDelete() {
+      swal("Datos eliminados correctamente.", "", "error");
+      nombre.value = '';
+      apellido.value = '';
+      direccion.value = '';
+      telefono.value = '';
+      mail.value = '';
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form class="row" id="formulario" name="formulario">
+    <div class="offset-4" id="nombreForm">
+      <label for="inputNombre">Ingrese su nombre:</label>
+      <input type="text" class="form-control" id="nombre" aria-describedby="nombreHelp" placeholder="Ingrese su nombre">
+      <small id="nombreHelp" class="form-text ">We'll never share your nombre with anyone else.</small>
+    </div>
+    <div class="offset-4">
+      <label for="">Ingrese su apellido:</label>
+      <input type="text" class="form-control" id="apellido" aria-describedby="apellidoHelp"
+        placeholder="Ingrese su apellido">
+      <small id="apellidoHelp" class="form-text ">We'll never share your apellido with anyone else.</small>
+    </div>
+    <div class="offset-4">
+      <label for="">Ingrese su dirección:</label>
+      <input type="text" class="form-control" id="direccion" aria-describedby="direccionHelp"
+        placeholder="Ingrese su dirección">
+      <small id="direccionHelp" class="form-text">We'll never share your direccion with anyone else.</small>
+    </div>
+    <div class="offset-4">
+      <label for="">Ingrese su teléfono:</label>
+      <input type="number" class="form-control" id="telefono" aria-describedby="telefonoHelp"
+        placeholder="Ingrese su teléfono">
+      <small id="telefonoHelp" class="form-text ">We'll never share your telefono with anyone else.</small>
+    </div>
+    <div class="offset-4">
+      <label for="">Ingrese su e-mail:</label>
+      <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Ingrese su e-mail">
+      <small id="emailHelp" class="form-text "></small>
+    </div>
+
+  </form>
+  <button id="submitButton" type="button" class="btn btn-primary offset-4" onclick=validar()
+    style="background-color: #47e28f; border:none;color:black;">Enviar datos</button>
+  <button type="reset" class="btn btn-light" onclick=onDelete()
+    style="background-color: white; border:none;color:black;">Eliminar datos</button>
+
+  <script>
+    var nombre = document.getElementById('nombre');
+    var apellido = document.getElementById('apellido');
+    var direccion = document.getElementById('direccion');
+    var telefono = document.getElementById('telefono');
+    var mail = document.getElementById('mail');
+  </script>
+
+</body>
+
+</html>

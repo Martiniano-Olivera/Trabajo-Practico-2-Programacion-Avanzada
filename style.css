@@ -1,0 +1,14 @@
+body {
+    /*! background-color: #ace6da; */
+    background-image: linear-gradient(to right, #fd79a8, #47e28f);
+    padding: 2rem;
+}
+
+.form-control {
+    width: 80%;
+}
+
+label,
+small {
+    color: white;
+}
